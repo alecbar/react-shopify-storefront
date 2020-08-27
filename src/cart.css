@@ -10,3 +10,7 @@ li.cart-item {
     padding: 10px;
     border-bottom: 1px solid black;
 }
+
+button {
+    background-color: lightgreen;
+}

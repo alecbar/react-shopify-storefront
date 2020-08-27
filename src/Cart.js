@@ -13,7 +13,7 @@ const Cart = (props) => {
                     )}
                 </ul>
             </div>
-            {props.items.length > 0 ? <button>Checkout</button> : <p>No items added yet.</p>}
+            {props.items.length > 0 ? <button disabled="true">Checkout</button> : <p>No items added yet.</p>}
         </div>
     )
 }
