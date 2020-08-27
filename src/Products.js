@@ -3,7 +3,7 @@ import './products.css';
 
 const Variant = (props) => {
 
-    const [selected, setSelected] = useState(false)
+    const [selected, setSelected] = useState(props.selected)
 
     const handleClick = () => {
         // Set as selected variant on click
@@ -18,7 +18,7 @@ const Variant = (props) => {
         }
     }
 
-    return <li className={selected ? "selected" : null} onClick={handleClick}>{props.name}</li>
+    return <li className={props.selected ? "selected" : null} onClick={handleClick}>{props.name}</li>
 }
 
 const Product = (props) => {
@@ -29,7 +29,7 @@ const Product = (props) => {
 
     const addToCart = () => {
         if (selectedVariant) {
-            props.addToCart(selectedVariant)
+            props.addToCart({title: props.product.title, id: selectedVariant})
             console.log(selectedVariant, "added to cart.")
         }
         else {
@@ -44,13 +44,13 @@ const Product = (props) => {
 
     return (
         <div className="product">
-            <h3>Product Title</h3>
-            <p>Product Description</p>
-            <p>$100</p>
+            <p>{props.product.title}</p>
+            <p>{props.product.price}</p>
             <img></img>
             <div>
+
                 <ul className="variants">
-                    <Variant variant="9.5" name="9.5" onClick={selectVariant} />
+                    {props.product.variants.map(variant => <Variant selected={selectedVariant == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
             <button className={selectedVariant ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
@@ -63,7 +63,7 @@ const Products = (props) => {
 
     return (
         <div>
-            <Product addToCart={props.addToCart}/>
+            {props.products.map(product => <Product product={product} addToCart={props.addToCart}/>)}
         </div>
     )
 }
