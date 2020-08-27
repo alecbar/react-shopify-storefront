@@ -1,21 +1,43 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './products.css';
 
 const Variant = (props) => {
-    return <li variant={props.variant} onClick={() => props.onClick(props.variant)}>{props.name}</li>
+
+    const [selected, setSelected] = useState(false)
+
+    const handleClick = () => {
+        // Set as selected variant on click
+        // Do opposite if already selected
+        if (selected) {
+            setSelected(false)
+            props.onClick(null)
+        }
+        else{
+            setSelected(true)
+            props.onClick(props.variant)
+        }
+    }
+
+    return <li className={selected ? "selected" : null} onClick={handleClick}>{props.name}</li>
 }
 
 const Product = () => {
 
     // Selected variant to use for add to cart
     const [selectedVariant, setSelectedVariant] = useState(null)
+    const [error, setError] = useState(false)
 
     const addToCart = () => {
-        console.log("Add to cart.")
+        if (selectedVariant) {
+            console.log(selectedVariant, "added to cart.")
+        }
+        else {
+            setError(true)
+        }
     }
 
     const selectVariant = (variant) => {
-        console.log(variant)
+        if(error){setError(false)}
         setSelectedVariant(variant)
     }
 
@@ -27,17 +49,17 @@ const Product = () => {
             <img></img>
             <div>
                 <ul className="variants">
-                    <li id={9.5} onClick={selectVariant}>9.5</li>
-                    <Variant variant="9.5" name="Test" onClick={selectVariant}/>
+                    <Variant variant="9.5" name="9.5" onClick={selectVariant} />
                 </ul>
             </div>
-            <button className={selectedVariant? "enabled": "disabled"} onClick={addToCart}>Add to Cart</button>
+            <button className={selectedVariant ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
+            {error ? <p>Please select a size.</p> : null}
         </div>
     )
 }
 
 const Products = () => {
-    
+
     return (
         <div>
             <Product />
