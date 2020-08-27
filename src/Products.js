@@ -21,7 +21,7 @@ const Variant = (props) => {
     return <li className={selected ? "selected" : null} onClick={handleClick}>{props.name}</li>
 }
 
-const Product = () => {
+const Product = (props) => {
 
     // Selected variant to use for add to cart
     const [selectedVariant, setSelectedVariant] = useState(null)
@@ -29,6 +29,7 @@ const Product = () => {
 
     const addToCart = () => {
         if (selectedVariant) {
+            props.addToCart(selectedVariant)
             console.log(selectedVariant, "added to cart.")
         }
         else {
@@ -58,11 +59,11 @@ const Product = () => {
     )
 }
 
-const Products = () => {
+const Products = (props) => {
 
     return (
         <div>
-            <Product />
+            <Product addToCart={props.addToCart}/>
         </div>
     )
 }
