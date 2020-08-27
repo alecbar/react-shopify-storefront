@@ -7,7 +7,7 @@ const Cart = (props) => {
             <p>Cart: {props.items.length}</p>
             <div>
                 <ul className="cart">
-                    {props.items.map((item, i) => <li key={i}>- {item.title}</li>)}
+                    {props.items.map((item, i) => <li key={i}>{item.title} - {item.variant_title}</li>)}
                 </ul>
             </div>
             {props.items.length > 0 ? <button>Checkout</button>: <p>No items added yet.</p>}

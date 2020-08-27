@@ -14,7 +14,7 @@ const Variant = (props) => {
         }
         else{
             setSelected(true)
-            props.onClick(props.variant)
+            props.onClick(props.variant, props.name)
         }
     }
 
@@ -24,22 +24,26 @@ const Variant = (props) => {
 const Product = (props) => {
 
     // Selected variant to use for add to cart
-    const [selectedVariant, setSelectedVariant] = useState(null)
+    const [selectedVariant, setSelectedVariant] = useState({id: null, name: null})
     const [error, setError] = useState(false)
 
     const addToCart = () => {
         if (selectedVariant) {
-            props.addToCart({title: props.product.title, id: selectedVariant})
+            // Might want to change what varlues are added here, both from main product and variant 
+            props.addToCart({title: props.product.title, variant_id: selectedVariant.id, variant_title: selectedVariant.name})
             console.log(selectedVariant, "added to cart.")
         }
         else {
+            // Error if no variant is selected
             setError(true)
         }
     }
 
-    const selectVariant = (variant) => {
+    const selectVariant = (id, name) => {
         if(error){setError(false)}
-        setSelectedVariant(variant)
+
+    
+        setSelectedVariant({id: id, name: name})
     }
 
     return (
@@ -50,7 +54,7 @@ const Product = (props) => {
             <div>
 
                 <ul className="variants">
-                    {props.product.variants.map(variant => <Variant selected={selectedVariant == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
+                    {props.product.variants.map(variant => <Variant selected={selectedVariant.id == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
             <button className={selectedVariant ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
