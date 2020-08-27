@@ -16,6 +16,16 @@ button {
     height: 30px;
     width: 100px;
     font-size: .75rem;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
+button.enabled {
+    background-color: lightgreen;
+}
+
+button.disabled {
+    background-color: lightpink;
 }
 
 ul, li {
