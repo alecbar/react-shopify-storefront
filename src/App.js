@@ -1,5 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 import Products from './Products'
+import Cart from './Cart'
 
 const App = () => {
 
@@ -14,14 +21,37 @@ const App = () => {
     setCart([...cart, variant])
   }
 
-  return(
-    <div>
+  return (
+    <Router>
       <div>
-      <p>Cart: {cart.length}</p>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route path="/">
+            <div>
+              <div>
+                <p>Cart: {cart.length}</p>
+              </div>
+              <h1>Shop</h1>
+              <Products addToCart={addToCart} />
+            </div>
+          </Route>
+        </Switch>
+
       </div>
-      <h1>Shop</h1>
-      <Products addToCart={addToCart}/>
-    </div>
+    </Router>
   )
 }
 
