@@ -1,16 +1,19 @@
 import React from 'react'
 import './cart.css'
 
+
 const Cart = (props) => {
     return (
         <div>
             <p>Cart: {props.items.length}</p>
             <div>
                 <ul className="cart">
-                    {props.items.map((item, i) => <li key={i}>{item.title} - {item.variant_title}</li>)}
+                    {props.items.map((item, i) =>
+                        <li key={i} className="cart-item">Name:{item.title} Size:{item.variant_title}</li>
+                    )}
                 </ul>
             </div>
-            {props.items.length > 0 ? <button>Checkout</button>: <p>No items added yet.</p>}
+            {props.items.length > 0 ? <button>Checkout</button> : <p>No items added yet.</p>}
         </div>
     )
 }

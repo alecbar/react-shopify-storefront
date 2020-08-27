@@ -4,3 +4,7 @@ ul.cart, li {
     padding: 4px;
     text-decoration: none;
 }
+
+li.cart-item {
+    background-color: lightgray;
+}

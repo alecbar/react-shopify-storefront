@@ -28,7 +28,7 @@ const Product = (props) => {
     const [error, setError] = useState(false)
 
     const addToCart = () => {
-        if (selectedVariant) {
+        if (selectedVariant.id){
             // Might want to change what varlues are added here, both from main product and variant 
             props.addToCart({title: props.product.title, variant_id: selectedVariant.id, variant_title: selectedVariant.name})
             console.log(selectedVariant, "added to cart.")
@@ -49,7 +49,7 @@ const Product = (props) => {
     return (
         <div className="product">
             <p>{props.product.title}</p>
-            <p>{props.product.price}</p>
+            <p>${props.product.price}</p>
             <img></img>
             <div>
 
@@ -57,7 +57,7 @@ const Product = (props) => {
                     {props.product.variants.map(variant => <Variant selected={selectedVariant.id == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
-            <button className={selectedVariant ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
+            <button className={selectedVariant.id ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
             {error ? <p>Please select a size.</p> : null}
         </div>
     )
