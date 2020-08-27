@@ -7,4 +7,6 @@ ul.cart, li {
 
 li.cart-item {
     background-color: lightgray;
+    padding: 10px;
+    border-bottom: 1px solid black;
 }

@@ -57,7 +57,7 @@ const Product = (props) => {
                     {props.product.variants.map(variant => <Variant selected={selectedVariant.id == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
-            <button className={selectedVariant.id ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
+            <button disabled={selectedVariant.id ? false : true} className={selectedVariant.id ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
             {error ? <p>Please select a size.</p> : null}
         </div>
     )
