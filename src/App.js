@@ -1,8 +1,12 @@
 import React from 'react';
+import Products from './Products'
 
 const App = () => {
   return(
-    <p>Hello</p>
+    <div>
+      <h1>Shop</h1>
+      <Products />
+    </div>
   )
 }
 
