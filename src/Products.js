@@ -48,15 +48,17 @@ const Product = (props) => {
 
     return (
         <div className="product">
-            <p>{props.product.title}</p>
-            <p>${props.product.price}</p>
-            <img></img>
-            <div>
+            <div className="product-title"> 
+                <h3>{props.product.title}</h3>
+            </div>
+            <img src="https://stockx-360.imgix.net//adidas-Yeezy-Boost-350-V2-Earth/Images/adidas-Yeezy-Boost-350-V2-Earth/Lv2/img01.jpg"></img>
+            <div className="variants">
 
                 <ul className="variants">
                     {props.product.variants.map(variant => <Variant selected={selectedVariant.id == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
+            <p>${props.product.price}</p>
             <button disabled={selectedVariant.id ? false : true} className={selectedVariant.id ? "enabled" : "disabled"} onClick={addToCart}>Add to Cart</button>
             {error ? <p>Please select a size.</p> : null}
         </div>
@@ -66,7 +68,7 @@ const Product = (props) => {
 const Products = (props) => {
 
     return (
-        <div>
+        <div className="products">
             {props.products.map(product => <Product product={product} addToCart={props.addToCart}/>)}
         </div>
     )

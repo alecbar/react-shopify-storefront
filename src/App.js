@@ -86,7 +86,7 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <div className="nav">
         <nav>
           <ul>
             <li>
@@ -97,23 +97,26 @@ const App = () => {
             </li>
           </ul>
         </nav>
-
-        <Switch>
-          <Route path="/cart">
-            <Cart items={cart} />
-          </Route>
-          <Route path="/">
-            <div>
-              <div>
-                <p>Cart: {cart.length}</p>
-              </div>
-              <Products products={products} addToCart={addToCart} />
-            </div>
-          </Route>
-        </Switch>
-
       </div>
-    </Router>
+
+      <Switch>
+        <Route path="/cart">
+          <div className="main">
+            <Cart items={cart} />
+          </div>
+        </Route>
+        <Route path="/">
+          <div className="main">
+            <h2>Online Shop</h2>
+            <div>
+              <p>Cart: {cart.length}</p>
+            </div>
+            <Products products={products} addToCart={addToCart} />
+          </div>
+        </Route>
+      </Switch>
+
+    </Router >
   )
 }
 

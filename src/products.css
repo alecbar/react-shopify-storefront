@@ -1,50 +1,83 @@
-
-.product {
-    height: 320px;
-    width: 300px;
-    background-color: lightcyan;
-    text-align: center;
-    padding: 10px
-}
-
-img {
-    width: 150px;
-    height: 200px;
-    background-color: lightgray;
-}
-
-button {
-    height: 30px;
-    width: 100px;
-    font-size: .75rem;
-    border-radius: 4px;
-    border: 1px solid white;
-}
-
-button.enabled {
-    background-color: lightgreen;
-}
-
-button.disabled {
-    background-color: lightpink;
-}
-
-ul, li {
-    list-style: none;
-    display: inline-block;
-    padding: 4px;
-    text-decoration: underline;
-    font-size: .75rem;
-    cursor: default;
-}
-
-ul {
+.products {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 5px;
     justify-content: center;
 }
 
+@media only screen and (min-width: 640px) {
+    .products {
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .products {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+
+
+
+.product {
+    background-color: white;
+    text-align: center;
+    padding: 5px;
+    max-width: 220px;
+}
+
+.product-title {
+    height: 40px;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    height: 24px;
+    width: 80px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: none;
+    margin: 5px;
+}
+
+button.enabled {
+    background-color: #2A9D8F;
+    border: 1px solid #2A9D8F;
+    color: #EFF2EF;
+}
+
+button.disabled {
+    background: none;
+    border: 1px solid #2A9D8F
+}
+
+
+
+ul.variants, li {
+    list-style: none;
+    text-decoration: underline;
+    font-size: .75rem;
+    cursor: default;
+    border-radius: 4px;
+}
+
+ul.variants {
+    display: grid;
+    grid-template-columns: repeat(4, 20px);
+    grid-template-rows: repeat(3, 20px);
+    grid-gap: 5px;
+    justify-content: center;
+    padding: 1px;
+}
+
 li.selected {
-    background-color: lightgray;
+    background-color: rgba(42, 157, 143, .2);
 }

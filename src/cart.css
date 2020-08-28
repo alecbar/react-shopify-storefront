@@ -1,7 +1,6 @@
 ul.cart, li {
     display: block;
     list-style: none;
-    padding: 4px;
     text-decoration: none;
 }
 
