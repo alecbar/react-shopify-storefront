@@ -51,7 +51,9 @@ const Product = (props) => {
             <div className="product-title"> 
                 <h3>{props.product.title}</h3>
             </div>
-            <img src="https://stockx-360.imgix.net//adidas-Yeezy-Boost-350-V2-Earth/Images/adidas-Yeezy-Boost-350-V2-Earth/Lv2/img01.jpg"></img>
+            <div className="img">
+                <img src={props.product.image}></img>
+            </div>
             <div className="variants">
 
                 <ul className="variants">

@@ -73,7 +73,7 @@ const App = () => {
             title: edge.node.title,
             _id: edge.node.id,
             description: edge.node.description,
-            images: edge.node.images.edges,
+            image: edge.node.images.edges[0].node.src,
             price: edge.node.priceRange.maxVariantPrice.amount,
             variants: edge.node.variants.edges,
           }

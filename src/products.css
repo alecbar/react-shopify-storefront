@@ -27,7 +27,7 @@
 .product {
     background-color: white;
     text-align: center;
-    padding: 5px;
+    padding: 15px;
     max-width: 220px;
 }
 
@@ -37,6 +37,10 @@
 
 img {
     max-width: 100%;
+}
+
+div.img{
+    height: 160px;
 }
 
 button {
