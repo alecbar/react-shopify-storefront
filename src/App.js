@@ -79,7 +79,6 @@ const App = () => {
           }
         })
         // Set products state
-        console.log(JSON.stringify(products))
         setProducts(products)
       })
   }, [])
@@ -107,10 +106,6 @@ const App = () => {
         </Route>
         <Route path="/">
           <div className="main">
-            <h2>Online Shop</h2>
-            <div>
-              <p>Cart: {cart.length}</p>
-            </div>
             <Products products={products} addToCart={addToCart} />
           </div>
         </Route>
