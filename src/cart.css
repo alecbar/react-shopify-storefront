@@ -1,9 +1,13 @@
 .cart-div {
     margin: auto;
+    margin-top: 20px;
     width: 90%;
     max-width: 400px;
 }
 
+.cart-div > p > a {
+    color: black;
+}
 
 ul.cart {
     display: block;

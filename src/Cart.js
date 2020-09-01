@@ -43,7 +43,7 @@ const Cart = (props) => {
     return (
         <div>
             <div className="cart-div">
-                <p>Items: {props.items.length}</p>
+                {props.items.length > 0 ? <p>Items: {props.items.length}</p> : <p>Nothing in your cart yet. Start shopping <a href="/">here</a>.</p>}
                 <ul className="cart">
                     {props.items.map((item, i) =>
                         <li key={i} 
