@@ -10,3 +10,7 @@
 .about > p {
     margin: 8px;
 }
+
+.about > p > a {
+    color: black;
+}
