@@ -20,9 +20,11 @@ const App = () => {
     setCart([...cart, variant])
   }
 
-  // Fetch Products
-  const url = "https://alec-barnard-test-store.myshopify.com/api/2019-07/graphql.json"
-  const query = `query {
+  useEffect(() => {
+
+    // Fetch Products
+    const url = "https://alec-barnard-test-store.myshopify.com/api/2019-07/graphql.json"
+    const query = `query {
     products(first: 10) {
       edges {
         node {
@@ -54,17 +56,17 @@ const App = () => {
     }
   }
   `
-  const options = {
-    method: "POST",
-    headers: {
-      "accept": "application/json",
-      "content-type": "application/json",
-      "X-Shopify-Storefront-Access-Token": "ddb9566657b8505494a79b2dc35212cc"
-    },
-    body: JSON.stringify({ "query": query })
-  }
 
-  useEffect(() => {
+    const options = {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "X-Shopify-Storefront-Access-Token": "ddb9566657b8505494a79b2dc35212cc"
+      },
+      body: JSON.stringify({ "query": query })
+    }
+
 
     // Fetch products
     fetch(url, options)
@@ -98,7 +100,7 @@ const App = () => {
             </li>
             <li className="cart">
               <Link to="/cart">
-                <img className="cart-icon" src={cartIcon}></img>
+                <img className="cart-icon" src={cartIcon} alt="cart icon"></img>
                 <span className="cart-text">{cart.length}</span>
               </Link>
             </li>

@@ -51,12 +51,12 @@ const Product = (props) => {
                 <h3>{props.product.title}</h3>
             </div>
             <div className="img">
-                <img src={props.product.image}></img>
+                <img src={props.product.image} alt={props.product.title}></img>
             </div>
             <div className="variants">
 
                 <ul className="variants">
-                    {props.product.variants.map(variant => <Variant selected={selectedVariant.id == variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
+                    {props.product.variants.map(variant => <Variant selected={selectedVariant.id === variant.node.id ? true: false} variant={variant.node.id} name={variant.node.title} onClick={selectVariant}/>)}
                 </ul>
             </div>
             <p>${props.product.price}</p>
