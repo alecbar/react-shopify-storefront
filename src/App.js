@@ -8,6 +8,7 @@ import {
 import Products from './Products'
 import Cart from './Cart'
 import cartIcon from './cartIcon.png'
+import About from './About'
 
 const App = () => {
 
@@ -93,7 +94,7 @@ const App = () => {
               <Link to="/">Shop</Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li className="cart">
               <Link to="/cart">
@@ -109,6 +110,11 @@ const App = () => {
         <Route path="/cart">
           <div className="main">
             <Cart items={cart} />
+          </div>
+        </Route>
+        <Route path="/about">
+          <div class="main">
+            <About />
           </div>
         </Route>
         <Route path="/">

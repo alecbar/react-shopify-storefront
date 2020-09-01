@@ -1,0 +1,12 @@
+.about {
+    width: 90%;
+    max-width: 300px;
+    background-color: #EFF2EF;
+    margin: auto;
+    margin-top: 20px;
+    padding: 8px;
+}
+
+.about > p {
+    margin: 8px;
+}
