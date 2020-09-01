@@ -30,7 +30,7 @@ const Product = (props) => {
     const addToCart = () => {
         if (selectedVariant.id){
             // Might want to change what varlues are added here, both from main product and variant 
-            props.addToCart({title: props.product.title, variant_id: selectedVariant.id, variant_title: selectedVariant.name})
+            props.addToCart({title: props.product.title, variant_id: selectedVariant.id, variant_title: selectedVariant.name, image: props.product.image, price: props.product.price, description: props.product.description})
             console.log(selectedVariant, "added to cart.")
         }
         else {
@@ -42,7 +42,6 @@ const Product = (props) => {
     const selectVariant = (id, name) => {
         if(error){setError(false)}
 
-    
         setSelectedVariant({id: id, name: name})
     }
 
