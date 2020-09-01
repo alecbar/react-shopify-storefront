@@ -21,9 +21,6 @@
     }
 }
 
-
-
-
 .product {
     background-color: white;
     text-align: center;
@@ -65,10 +62,10 @@ button.disabled {
 
 
 
-ul.variants, li {
+ul.variants, ul.variants > li {
     list-style: none;
     text-decoration: underline;
-    font-size: .75rem;
+    font-size: 12px;
     cursor: default;
     border-radius: 4px;
 }

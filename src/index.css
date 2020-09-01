@@ -35,3 +35,28 @@ a {
 pre {
   font-size: 6px;
 }
+
+nav > ul {
+  list-style: none;
+  margin: 0px;
+  padding: 5px 16px;
+}
+
+nav > ul > li {
+  padding: 5px 16px;
+  display: inline-block;
+}
+
+nav > ul > li.cart {
+  float: right;
+  text-decoration: none;
+}
+
+.cart-icon {
+  height: 16px;
+  margin-right: 8px;
+}
+
+.cart-text {
+  text-decoration: none;
+}

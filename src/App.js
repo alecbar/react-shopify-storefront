@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import Products from './Products'
 import Cart from './Cart'
+import cartIcon from './cartIcon.png'
 
 const App = () => {
 
@@ -92,7 +93,13 @@ const App = () => {
               <Link to="/">Shop</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/">About</Link>
+            </li>
+            <li className="cart">
+              <Link to="/cart">
+                <img className="cart-icon" src={cartIcon}></img>
+                <span className="cart-text">{cart.length}</span>
+              </Link>
             </li>
           </ul>
         </nav>
